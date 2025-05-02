@@ -1,0 +1,77 @@
+.blogpage{
+    width: 100%;
+    min-height: 80vh;
+    padding: 50px 100px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+.bloglist{
+    width: 100%;
+    min-height: 70vh;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.blog{
+    width: 400px;
+    height: max-content;
+    padding: 10px;
+    border: 2px solid gainsboro;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.image{
+    width: 380px;
+    height: 140px;
+}
+
+.image img{
+    width: 380px;
+    height: 140px;
+    object-fit: cover;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.read-btn{
+    background-color: #333;
+    color: white;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.searchblog{
+    width: 45%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.search{
+    padding: 10px 30px;
+    border-radius: 25px;
+    width: 600px;
+    border: 2px solid gainsboro;
+}
+
+.filter{
+    padding: 10px 30px;
+    border-radius: 25px;
+    border: 2px solid gainsboro;
+}

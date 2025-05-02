@@ -1,0 +1,138 @@
+.profile{
+    width: 100vw;
+    min-height: calc(100vh - 100px);
+    padding: 50px 100px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.userdata{
+    display: flex;
+    gap: 150px;
+}
+
+.userInfo{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.userImage{
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background-color: gainsboro;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    border: 8px solid #333;
+}
+
+.userImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.editUser{
+    background-color: orange;
+    color: white;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.userInfoForm{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.userInfoForm input{
+    padding: 8px 10px;
+    border: 2px solid gainsboro;
+    border-radius: 5px;
+}
+
+.userInfoForm button{
+    background-color: #333;
+    color: white;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.createBlogForm form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 400px;
+}
+
+.createBlogForm form input{
+    padding: 8px 10px;
+    border: 2px solid gainsboro;
+    border-radius: 5px;
+}
+
+.createBlogForm form textarea{
+    padding: 8px 10px;
+    border: 2px solid gainsboro;
+    border-radius: 5px;
+    width: 100%;
+    height: 150px;
+    resize: none;
+}
+
+.createBlogbtn{
+    background-color: #333;
+    color: white;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.profile .myblogs{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.myblogs_bloglist{
+    width: 100%;
+    min-height: max-content;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.action-btns{
+    width: 100%;
+    display: flex;
+    gap: 10px;
+}
+
+.edit-blog-btn{
+    background-color: orange;
+    color: white;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.delete-blog-btn{
+    background-color: orangered;
+    color: white;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

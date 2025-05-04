@@ -136,3 +136,13 @@
     border-radius: 5px;
     cursor: pointer;
 }
+
+.blog h4{
+    color: #333;
+    font-weight: 500;
+    line-height: 22px;
+}
+
+.blog .info{
+    width: 100%;
+}

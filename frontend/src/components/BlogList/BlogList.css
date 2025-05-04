@@ -22,7 +22,7 @@
 .blog{
     width: 400px;
     height: max-content;
-    padding: 10px;
+    padding: 20px;
     border: 2px solid gainsboro;
     border-radius: 8px;
     display: flex;
@@ -33,28 +33,22 @@
 
 .image{
     width: 380px;
-    height: 140px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
 }
 
 .image img{
-    width: 380px;
-    height: 140px;
+    width: 360px;
+    height: 150px;
     object-fit: cover;
+    border-radius: 5px;
 }
 
 .info{
     display: flex;
     flex-direction: column;
     gap: 7px;
-}
-
-.read-btn{
-    background-color: #333;
-    color: white;
-    padding: 8px 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
 }
 
 .searchblog{
@@ -74,4 +68,48 @@
     padding: 10px 30px;
     border-radius: 25px;
     border: 2px solid gainsboro;
+}
+
+.blog .info h4 {
+    font-weight: 600;
+    white-space: nowrap;      
+    overflow: hidden;          
+    text-overflow: ellipsis;   
+    max-width: 100%;           
+  }
+
+.blog-top{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.blog-top .category{
+    background-color: rgb(238, 238, 238);
+    padding: 8px 10px;
+    border-radius: 5px;
+    color: cornflowerblue;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.author span{
+    color: cornflowerblue;
+    font-weight: 600;
+}
+
+.read-more-btn{
+    width: 100%;
+}
+
+.read-more-btn button{
+    background-color: #333;
+    padding: 8px 10px;
+    border-radius: 5px;
+    color: white;
+    border: none;
+    font-size: 15px;
+    font-weight: 400;
+    cursor: pointer;
 }

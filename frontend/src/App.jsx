@@ -34,7 +34,8 @@ const App = () => {
             <UserProfile />
           </PrivateRoute>
         } />
-        <Route path='/blog' element={<Blog />} />
+        <Route path='/blog/:id' element={<Blog />} />
+
       </Routes>
     </div>
   )

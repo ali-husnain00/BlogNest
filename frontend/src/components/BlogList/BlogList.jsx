@@ -8,6 +8,7 @@ const BlogList = () => {
     const { allBlogs } = useContext(BlogContext);
     const [searchedVal, setSearchedVal] = useState("");
     const [searchedCategory, setSearchedCategory] = useState("all");
+    
     const navigate = useNavigate();
 
     const searchedBlogs = allBlogs.filter((blog) => {

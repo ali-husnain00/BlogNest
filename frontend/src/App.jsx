@@ -11,6 +11,7 @@ import Blog from './pages/Blog/Blog'
 import PrivateRoute from './components/Context/PrivateRoute'
 import { BlogContext } from './components/Context/Context'
 import Loading from './components/Loading/Loading'
+import Footer from './components/Footer/Footer'
 
 const App = () => {
 
@@ -37,6 +38,7 @@ const App = () => {
         <Route path='/blog/:id' element={<Blog />} />
 
       </Routes>
+      <Footer/>
     </div>
   )
 }

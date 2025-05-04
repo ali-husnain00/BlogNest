@@ -5,6 +5,7 @@ import path from 'path';
 import { fileURLToPath } from "url";
 import cors from "cors";
 import dotenv from "dotenv";
+import nodemailer from "nodemailer"
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import cookieParser from "cookie-parser";
@@ -263,6 +264,37 @@ app.put("/updateBlog/:blogId", upload.single("image"), verifyToken, async (req, 
     res.status(500).send("An error occurred while updating the blog");
   }
 });
+
+app.post("/contactus", async (req, res) =>{
+
+  const {name, email, message} = req.body;
+
+  try {
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth:{
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+      },
+    })
+
+    await transporter.sendMail({
+      from: {name},
+      to: process.env.EMAIL_USER,
+      subject:"New contact message from BlogNest",
+      html:`
+      <h3>Message from ${name}</h3>
+      <p><strong>Email:</strong>${email}</p>
+      <p><strong>Message:</strong><br/>${message}</p>
+      `
+    })
+
+    res.status(200).send("Message sent successfully!");
+  } catch (error) {
+    console.error('Email sending error:', error);
+    res.status(500).json({ message: 'Failed to send message.' });
+  }
+})
 
 
 const PORT = process.env.PORT || 3000;

@@ -1,0 +1,32 @@
+.footer {
+    background-color: white;
+    color: #333;
+    padding: 40px 0;
+    text-align: center;
+    margin-top: 60px;
+    border-top: 2px solid gainsboro;
+  }
+  
+  .footer-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 100px;
+  }
+  
+  .footer-logo {
+    font-size: 1.8rem;
+    color: #e74c3c;
+    margin-bottom: 10px;
+  }
+  
+  .footer-text {
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+  }
+  
+  .footer-bottom {
+    margin-top: 20px;
+    font-size: 0.85rem;
+    color: #95a5a6;
+  }
+  

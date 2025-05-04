@@ -62,6 +62,7 @@
     border-radius: 25px;
     width: 600px;
     border: 2px solid gainsboro;
+    outline: none;
 }
 
 .filter{

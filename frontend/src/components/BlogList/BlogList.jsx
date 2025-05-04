@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import "./BlogList.css"
 import { BlogContext } from '../Context/Context'
 import { useNavigate } from 'react-router';
@@ -6,24 +6,34 @@ import { useNavigate } from 'react-router';
 const BlogList = () => {
 
     const { allBlogs } = useContext(BlogContext);
+    const [searchedVal, setSearchedVal] = useState("");
+    const [searchedCategory, setSearchedCategory] = useState("all");
     const navigate = useNavigate();
+
+    const searchedBlogs = allBlogs.filter((blog) => {
+        const matchedSearch =  blog.title.toLowerCase().includes(searchedVal.toLowerCase());
+        const matchedCategory = searchedCategory === "all" || blog.category.toLowerCase() === searchedCategory.toLowerCase();
+        return matchedSearch && matchedCategory;
+    })
 
     return (
         <div className='blogpage'>
             <div className="searchblog">
-                <input type="text" placeholder='Search blog...' className='search' />
-                <select className='filter'>
-                    <option value="select">Select</option>
+                <input type="text" placeholder='Search blog...' className='search' value={searchedVal} onChange={(e) =>setSearchedVal(e.target.value)} />
+                <select className='filter' value={searchedCategory} onChange={(e) =>setSearchedCategory(e.target.value)}>
+                    <option value="all">All blogs</option>
                     <option value="sports">Sports</option>
                     <option value="food">Food</option>
                     <option value="travel">Travel</option>
+                    <option value="business">Business</option>
+                    <option value="programming">Programming</option> 
                 </select>
             </div>
 
             <div className="bloglist">
                 {
-                    allBlogs.length > 0 ? (
-                        allBlogs.map((blog) => (
+                    searchedBlogs.length > 0 ? (
+                        searchedBlogs.map((blog) => (
                             <div className="blog" key={blog._id}>
                                 <div className="blog-top">
                                 <p className='author'>By <span>{blog.author}</span></p>

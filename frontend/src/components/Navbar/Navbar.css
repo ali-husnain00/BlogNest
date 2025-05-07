@@ -14,7 +14,7 @@
 
 .navlinks{
     display: flex;
-    gap: 50px;
+    gap: 40px;
     align-items: center;
 }
 
@@ -34,4 +34,21 @@ select{
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.show{
+    background-color: rgb(238, 238, 238);
+    padding: 8px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.show li{
+    color: cornflowerblue;
+}
+
+.hide{
+    display: none;
 }

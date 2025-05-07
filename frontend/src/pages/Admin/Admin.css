@@ -1,0 +1,65 @@
+/* AdminPanel.css */
+
+.admin-panel {
+    width: 100vw;
+    min-height: 100vh;
+    padding: 0 100px;
+  }
+  
+  .admin-header {
+    height: 102px;
+    background-color: #f4f4f4;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .admin-body {
+    display: flex;
+    min-height: calc(100vh - 102px);
+  }
+  
+  .admin-sidebar {
+    width: 250px;
+    color: #333;
+    padding: 20px;
+    box-sizing: border-box;
+    height: calc(100vh - 102px);
+    position: relative;
+    border-right: 2px solid gainsboro;
+  }
+  
+  .admin-sidebar ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5;
+  }
+  
+  .admin-sidebar ul li {
+    padding: 12px 0;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: 0.05s;
+  }
+  
+  .admin-sidebar ul li:hover {
+    background-color: #333;
+    padding: 8px 10px;
+    color: white;
+    border-radius: 5px;
+  }
+  
+  .admin-main {
+    flex: 1;
+    padding: 40px 100px;
+    background-color: #fff;
+    height: calc(100vh - 102px);
+    overflow-y: auto;
+  }
+  

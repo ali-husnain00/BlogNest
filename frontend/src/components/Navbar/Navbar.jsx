@@ -69,6 +69,7 @@ const Navbar = () => {
         <Link to="/"><li>Home</li></Link>
         <Link to="/about"><li>About</li></Link>
         <Link to="/contact"><li>Contact</li></Link>
+        <Link className={user?.role === "admin" ? "show" : "hide"} to="/admin"><li>Admin Panel</li></Link>
         {
           user ? (  
             <select value={selectedOption} onChange={handleChange}>

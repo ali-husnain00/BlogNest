@@ -1,0 +1,61 @@
+import React, { useContext } from 'react';
+import "./ManageBlogs.css";
+import { BlogContext } from '../../components/Context/Context';
+import { useNavigate } from 'react-router-dom';
+
+const ManageBlogs = () => {
+  const { allBlogs, fetchAllBlogs } = useContext(BlogContext);
+  const navigate = useNavigate();
+
+  const handleDeleteBlog = async (id) =>{
+    try {
+      const res = await fetch(`http://localhost:3000/deleteBlog/${id}`,{
+        method:"DELETE",
+        headers:{
+          "Content-Type":"application/json"
+        },
+        credentials:'include'
+      })
+      if(res.ok){
+        alert("Blog deleted successfully!");
+        fetchAllBlogs();
+      }
+      else{
+        alert("An error occured while deleting the blog")
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+
+  return (
+    <div className="manage-blogs-container">
+      <h2>All Blogs</h2>
+      <table className="blogs-table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Category</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {allBlogs.map((blog) => (
+            <tr key={blog._id}>
+              <td>{blog.title}</td>
+              <td>{blog.author}</td>
+              <td>{blog.category}</td>
+              <td>
+                <button className="delete-btn" onClick={() => handleDeleteBlog(blog._id)}>Delete</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+};
+
+export default ManageBlogs;

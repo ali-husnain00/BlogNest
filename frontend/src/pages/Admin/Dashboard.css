@@ -1,0 +1,28 @@
+.stats{
+    display: flex;
+    gap: 50px;
+}
+
+.box{
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid gainsboro;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.box p{
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.box span{
+    color: crimson;
+    font-weight: 500;
+    font-size: 25px;
+}

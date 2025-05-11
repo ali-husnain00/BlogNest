@@ -1,19 +1,22 @@
 import React, { useState } from 'react';
 import './Admin.css';
+import Dashboard from './Dashboard';
+import UsersManager from './UsersManager';
+import ManageBlogs from './ManageBlogs';
+import { useNavigate } from 'react-router';
 
 const Admin = () => {
   const [selectedOption, setSelectedOption] = useState('dashboard');
+  const navigate = useNavigate();
 
   const renderComponent = () => {
     switch (selectedOption) {
       case 'dashboard':
-        return <div className="panel-content">Welcome to Admin Dashboard</div>;
+        return <Dashboard/>
       case 'users':
-        return <div className="panel-content">Manage Users</div>;
+        return <UsersManager/>
       case 'blogs':
-        return <div className="panel-content">Manage Blogs</div>;
-      case 'createBlog':
-        return <div className="panel-content">Create Blog</div>;
+        return <ManageBlogs/>
       default:
         return <div className="panel-content">Select an option</div>;
     }
@@ -21,14 +24,16 @@ const Admin = () => {
 
   return (
     <div className="admin-panel">
-      <header className="admin-header">Admin Panel</header>
+      <header className="admin-header">
+        <h3>Admin Panel</h3>
+        <button className='back-btn' onClick={() =>navigate("/")}>Back to home</button>
+      </header>
       <div className="admin-body">
         <aside className="admin-sidebar">
           <ul>
-            <li onClick={() => setSelectedOption('dashboard')}>Dashboard</li>
-            <li onClick={() => setSelectedOption('users')}>Manage Users</li>
-            <li onClick={() => setSelectedOption('blogs')}>Manage Blogs</li>
-            <li onClick={() => setSelectedOption('createBlog')}>Create Blog</li>
+            <li className={selectedOption === "dashboard" ? "active" : ""} onClick={() => setSelectedOption('dashboard')}>Dashboard</li>
+            <li className={selectedOption === "users" ? "active" : ""} onClick={() => setSelectedOption('users')}>Manage Users</li>
+            <li className={selectedOption === "blogs" ? "active" : ""} onClick={() => setSelectedOption('blogs')}>Manage Blogs</li>
           </ul>
         </aside>
         <main className="admin-main">

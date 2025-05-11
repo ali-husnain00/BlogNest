@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Route, Routes } from 'react-router'
+import { Route, Routes, useLocation } from 'react-router'
 import Home from './pages/Home/Home'
 import About from './pages/About/About'
 import Conatct from './pages/Contact/Conatct'
@@ -18,6 +18,9 @@ import AdminRoute from './components/Context/AdminRoute'
 const App = () => {
 
   const {loading} = useContext(BlogContext);
+  const location = useLocation();
+
+  const HideLayout = location.pathname.startsWith("/admin");
 
   if(loading){
     return <Loading/>
@@ -25,7 +28,7 @@ const App = () => {
 
   return (
     <div className='app'>
-      <Navbar />
+      {!HideLayout && <Navbar />}
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
@@ -44,7 +47,7 @@ const App = () => {
           </AdminRoute>
         } />
       </Routes>
-      <Footer/>
+      {!HideLayout && <Footer/>}
     </div>
   )
 }

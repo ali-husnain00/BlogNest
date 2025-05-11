@@ -78,7 +78,7 @@ const Navbar = () => {
               <option value="logout">Logout</option>
             </select>
           ) : (  
-            <Link to="/login"><i>Login</i></Link>
+            <Link to="/login"><i className='login-btn'>Login</i></Link>
           )
         }
       </ul>

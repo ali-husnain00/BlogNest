@@ -1,0 +1,32 @@
+.manage-blogs-container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.blogs-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.blogs-table th,
+.blogs-table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.blogs-table th {
+  background-color: #f4f4f4;
+}
+
+.delete-btn {
+  background-color: crimson;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  margin-left: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+

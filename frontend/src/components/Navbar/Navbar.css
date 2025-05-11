@@ -45,6 +45,16 @@ select{
     cursor: pointer;
 }
 
+.login-btn{
+    color: white;
+    background-color: #333;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: "Poppins";
+}
+
 .show li{
     color: cornflowerblue;
 }

@@ -17,7 +17,6 @@ const UserProfile = () => {
   const [userBlogs, setUserBlogs] = useState([]);
 
   const [isEdit, setIsEdit] = useState(false);
-  const [editBlog, setEditBlog] = useState({});
   const [editBlogId, setEditBlogId] = useState("");
 
   const handleUpdateUser = async (e) => {

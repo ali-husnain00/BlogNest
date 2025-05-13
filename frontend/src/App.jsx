@@ -14,6 +14,7 @@ import Loading from './components/Loading/Loading'
 import Footer from './components/Footer/Footer'
 import Admin from './pages/Admin/Admin'
 import AdminRoute from './components/Context/AdminRoute'
+import { ToastContainer} from 'react-toastify';
 
 const App = () => {
 
@@ -47,6 +48,7 @@ const App = () => {
           </AdminRoute>
         } />
       </Routes>
+      <ToastContainer/>
       {!HideLayout && <Footer/>}
     </div>
   )

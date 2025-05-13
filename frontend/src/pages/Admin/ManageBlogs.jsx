@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import "./ManageBlogs.css";
 import { BlogContext } from '../../components/Context/Context';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const ManageBlogs = () => {
   const { allBlogs, fetchAllBlogs } = useContext(BlogContext);
@@ -17,11 +18,11 @@ const ManageBlogs = () => {
         credentials:'include'
       })
       if(res.ok){
-        alert("Blog deleted successfully!");
+        toast.success("Blog deleted successfully!");
         fetchAllBlogs();
       }
       else{
-        alert("An error occured while deleting the blog")
+        toast.error("An error occured while deleting the blog")
       }
     } catch (error) {
       console.log(error)

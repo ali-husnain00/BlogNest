@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import "./UserProfile.css"
 import { BlogContext } from '../../components/Context/Context'
+import { ToastContainer, toast } from 'react-toastify';
 
 const UserProfile = () => {
 
@@ -23,7 +24,7 @@ const UserProfile = () => {
     e.preventDefault();
 
     if (!username || !email) {
-      alert("Please fill in all fields.");
+      toast.warning("Please fill in all fields.");
       return;
     }
 
@@ -42,13 +43,12 @@ const UserProfile = () => {
       if (res.ok) {
         const data = await res.json();
         setUser(data.user);
-        alert("User updated successfully!");
+        toast.success("User updated successfully!");
       } else {
-        alert("An error occurred while updating the user.");
+        toast.error("An error occurred while updating the user.");
       }
     } catch (error) {
       console.error(error);
-      alert("Something went wrong while updating the user.");
     }
   };
 
@@ -73,11 +73,11 @@ const UserProfile = () => {
         setBlogCategory("");
         setBlogContent("");
         setBlogImage(null);
-        alert("Blog created successfully!");
+        toast.success("Blog created successfully!");
         getUserBlogs();
         fetchAllBlogs();
       } else {
-        alert("An error occurred while creating the blog");
+        toast.error("An error occurred while creating the blog");
       }
     } catch (error) {
       console.log(error);
@@ -120,12 +120,12 @@ const UserProfile = () => {
         credentials:'include'
       })
       if(res.ok){
-        alert("Blog deleted successfully!");
+        toast.success("Blog deleted successfully!");
         getUserBlogs();
         fetchAllBlogs();
       }
       else{
-        alert("An error occured while deleting the blog")
+        toast.error("An error occured while deleting the blog")
       }
     } catch (error) {
       console.log(error)
@@ -162,14 +162,14 @@ const UserProfile = () => {
         setBlogCategory("");
         setBlogContent("");
         setBlogImage(null);
-        alert("Blog updated successfully!");
+        toast.success("Blog updated successfully!");
         setIsEdit(false);
         setEditBlogId("");
         getUserBlogs();
         fetchAllBlogs();
       }
       else{
-        alert("An error occured while updating the blog")
+        toast.error("An error occured while updating the blog")
       }
     } catch (error) {
       console.log(error)

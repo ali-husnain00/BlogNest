@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import './Navbar.css';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { BlogContext } from '../Context/Context';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Navbar = () => {
   const { user, setUser } = useContext(BlogContext);
@@ -23,8 +24,10 @@ const Navbar = () => {
     if (user) {
       navigate("/userProfile");
     } else {
-      alert("Please Login First");
-      navigate("/login");
+      toast.warning("Please Login First");
+      setTimeout(() =>{
+        navigate("/login");
+      },1500)
     }
   };
 
@@ -39,10 +42,12 @@ const Navbar = () => {
       });
       if (res.ok) {
         setUser(null);  
-        alert("Logout successful");
-        navigate("/login");
+        toast.success("Logout successful");
+        setTimeout(() =>{
+           navigate("/login");
+        },1500)
       } else {
-        alert("An error occurred while logging out");
+        toast.error("An error occurred while logging out");
       }
     } catch (error) {
       console.error(error);

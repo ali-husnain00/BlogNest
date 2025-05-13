@@ -126,34 +126,38 @@ app.post("/logout", (req, res) => {
 
 app.put("/updateUser", upload.single("image"), verifyToken, async (req, res) => {
   const { username, email } = req.body;
+  const userId = req.user.id;
 
   try {
-    const user = await User.findOne({ email });
-
+    const user = await User.findById(userId);
     if (!user) {
-      return res.status(404).send("User not found");
+      return res.status(404).json({ success: false, message: "User not found" });
     }
 
     const profilePic = req.file ? req.file.filename : user.profilePic;
 
-    const updatedUser = await User.findOneAndUpdate(
-      { email },  
+    const updatedUser = await User.findByIdAndUpdate(
+      userId,
       {
-        username: username,
-        email: email,
-        profilePic: profilePic,  
+        username,
+        email,        
+        profilePic,
       },
-      { new: true }  
+      { new: true }
     );
 
-   
-    res.status(200).json({ user: updatedUser });
+    res.status(200).json({
+      success: true,
+      message: "User updated successfully",
+      user: updatedUser,
+    });
 
   } catch (error) {
     console.error(error);
-    res.status(500).send("An error occurred while updating user");
+    res.status(500).json({ success: false, message: "An error occurred while updating user" });
   }
 });
+
 
 app.post("/createBlog", upload.single("image"), async (req, res) => {
   const { blogTitle, blogContent, blogCategory, email } = req.body;

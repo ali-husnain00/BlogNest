@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './UsersManager.css'; 
+import { toast } from 'react-toastify';
 
 const UsersManager = () => {
   const [users, setUsers] = useState([]);
@@ -21,11 +22,11 @@ const UsersManager = () => {
             method: "DELETE",
         })
         if(res.ok){
-            alert("User deleted successfully!");
+            toast.success("User deleted successfully!");
             fetchUsers();
         }
         else{
-            alert("An error occured while deleting users");
+            toast.error("An error occured while deleting users");
         }
     } catch (error) {
         console.log(error);

@@ -1,4 +1,4 @@
-.navbar{
+.navbar {
     width: 100%;
     height: 100px;
     padding: 0 100px;
@@ -11,26 +11,27 @@
     background-color: white;
 }
 
-.navbar h1{
+.navbar h1 {
     cursor: pointer;
 }
 
-.navlinks{
+.navlinks {
     display: flex;
     gap: 40px;
     align-items: center;
+    transition: 0.45s all ease;
 }
 
-.navlinks li{
+.navlinks li {
     list-style: none;
 }
 
-.navlinks a{
+.navlinks a {
     text-decoration: none;
     color: black;
 }
 
-select{
+select {
     padding: 8px 10px;
     background-color: #333;
     color: white;
@@ -39,7 +40,7 @@ select{
     cursor: pointer;
 }
 
-.show{
+.show {
     background-color: rgb(238, 238, 238);
     padding: 8px 10px;
     border-radius: 5px;
@@ -48,7 +49,7 @@ select{
     cursor: pointer;
 }
 
-.login-btn{
+.login-btn {
     color: white;
     background-color: #333;
     padding: 8px 12px;
@@ -58,10 +59,83 @@ select{
     font-family: "Poppins";
 }
 
-.show li{
+.show li {
     color: cornflowerblue;
 }
 
-.hide{
+.hide {
     display: none;
+}
+
+.menu {
+    display: none;
+}
+.navlinks span{
+    display: none;
+}
+
+.navlinks.active{
+    right: 0;
+}
+
+@media (max-width: 1480px) {
+    .navbar {
+        padding: 0 60px;
+    }
+}
+
+@media (max-width: 1075px) {
+    .navbar {
+        padding: 0 60px;
+    }
+}
+
+@media (max-width: 962px) {
+    .navlinks {
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: #333;
+        width: 350px;
+        padding: 20px;
+        height: 100vh;
+        right: -400px;
+    }
+
+    .navlinks span{
+        width: 100%;
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        padding: 0 5px;
+    }
+
+    .close-menu{
+        font-size: 25px;
+        color: white;
+        cursor: pointer;
+    }
+
+    .navlinks a{
+        color: white;
+    }
+
+    .menu {
+        font-size: 28px;
+        display: block;
+        cursor: pointer;
+    }
+}
+
+@media (max-width: 780px) {
+    .navbar {
+        padding: 0px 50px;
+    }
+}
+
+@media (max-width: 510px) {
+    .navbar {
+        padding: 0px 25px;
+    }
 }

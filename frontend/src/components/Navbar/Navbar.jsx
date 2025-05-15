@@ -9,6 +9,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const location = useLocation();  
   const [selectedOption, setSelectedOption] = useState("");  
+  const [menuActive, setMenuActive] = useState(false);
 
   useEffect(() => {
     if (user) {
@@ -70,23 +71,25 @@ const Navbar = () => {
       <div className="logo" onClick={() => navigate("/")}>
         <h1>BlogNest</h1>
       </div>
-      <ul className="navlinks">
-        <Link to="/"><li>Home</li></Link>
-        <Link to="/about"><li>About</li></Link>
-        <Link to="/contact"><li>Contact</li></Link>
-        <Link className={user?.role === "admin" ? "show" : "hide"} to="/admin"><li>Admin Panel</li></Link>
+      <ul className={`navlinks ${menuActive ? "active" : ""}`}>
+        <span><i class="fa-solid fa-xmark close-menu" onClick={() =>setMenuActive(!menuActive)}></i></span>
+        <Link to="/"><li onClick={() =>setMenuActive(!menuActive)}>Home</li></Link>
+        <Link to="/about"><li onClick={() =>setMenuActive(!menuActive)}>About</li></Link>
+        <Link to="/contact"><li onClick={() =>setMenuActive(!menuActive)}>Contact</li></Link>
+        <Link className={user?.role === "admin" ? "show" : "hide"} to="/admin"><li onClick={() =>setMenuActive(!menuActive)}>Admin Panel</li></Link>
         {
           user ? (  
             <select value={selectedOption} onChange={handleChange}>
               <option value="greeting" disabled>Hi👋 {user.username}</option>
-              <option value="profile">My Profile</option>
-              <option value="logout">Logout</option>
+              <option onClick={() =>setMenuActive(!menuActive)} value="profile">My Profile</option>
+              <option onClick={() =>setMenuActive(!menuActive)} value="logout">Logout</option>
             </select>
           ) : (  
             <Link to="/login"><i className='login-btn'>Login</i></Link>
           )
         }
       </ul>
+      <i className="fa-solid fa-bars menu" onClick={() =>setMenuActive(!menuActive)}></i>
     </div>
   );
 };

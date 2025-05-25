@@ -43,7 +43,8 @@ const UsersManager = () => {
       {users.length === 0 ? (
         <p>No users found.</p>
       ) : (
-        <table className="user-table">
+        <div className="table-resp-container">
+          <table className="user-table">
           <thead>
             <tr>
               <th>#</th>
@@ -67,6 +68,7 @@ const UsersManager = () => {
             ))}
           </tbody>
         </table>
+        </div>
       )}
     </div>
   );

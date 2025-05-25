@@ -71,4 +71,16 @@
     border-radius: 5px;
     cursor: pointer;
   }
+
+  @media (max-width:1300px){
+    .admin-header{
+      padding: 0 50px;
+    }
+    .admin-sidebar{
+      width: 262px;
+    }
+    .admin-main{
+      padding: 40px 50px;
+    }
+  }
   

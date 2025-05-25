@@ -23,7 +23,7 @@ const Register = () => {
         setUsername("");
         setEmail("");
         setPassword("");
-        toast.success("Login successful!");
+        toast.success("Registered successfully!");
         setTimeout(() => {
           navigate("/login");
         }, 1500);

@@ -73,19 +73,19 @@ const Navbar = () => {
       </div>
       <ul className={`navlinks ${menuActive ? "active" : ""}`}>
         <span><i class="fa-solid fa-xmark close-menu" onClick={() =>setMenuActive(!menuActive)}></i></span>
-        <Link to="/"><li onClick={() =>setMenuActive(!menuActive)}>Home</li></Link>
-        <Link to="/about"><li onClick={() =>setMenuActive(!menuActive)}>About</li></Link>
-        <Link to="/contact"><li onClick={() =>setMenuActive(!menuActive)}>Contact</li></Link>
-        <Link className={user?.role === "admin" ? "show" : "hide"} to="/admin"><li onClick={() =>setMenuActive(!menuActive)}>Admin Panel</li></Link>
+        <Link to="/"><li onClick={() =>setMenuActive(menuActive === true ? false : false)}>Home</li></Link>
+        <Link to="/about"><li onClick={() =>setMenuActive(menuActive === true ? false : false)}>About</li></Link>
+        <Link to="/contact"><li onClick={() =>setMenuActive(menuActive === true ? false : false)}>Contact</li></Link>
+        <Link className={user?.role === "admin" ? "show" : "hide"} to="/admin"><li onClick={() =>setMenuActive(menuActive === true ? false : false)}>Admin Panel</li></Link>
         {
           user ? (  
             <select value={selectedOption} onChange={handleChange}>
               <option value="greeting" disabled>Hi👋 {user.username}</option>
-              <option onClick={() =>setMenuActive(!menuActive)} value="profile">My Profile</option>
-              <option onClick={() =>setMenuActive(!menuActive)} value="logout">Logout</option>
+              <option onClick={() =>setMenuActive(menuActive === true ? false : false)} value="profile">My Profile</option>
+              <option onClick={() =>setMenuActive(menuActive === true ? false : false)} value="logout">Logout</option>
             </select>
           ) : (  
-            <Link to="/login"><i className='login-btn'>Login</i></Link>
+            <Link to="/login"><i className='login-btn' onClick={() =>setMenuActive(menuActive === true ? false : false)}>Login</i></Link>
           )
         }
       </ul>

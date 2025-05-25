@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './Contact.css';
+import { toast } from 'react-toastify';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -7,6 +8,7 @@ const Contact = () => {
     email: '',
     message: '',
   });
+  const [loading, setLoading] = useState(false)
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -15,6 +17,7 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true)
     try {
       const res = await fetch("http://localhost:3000/contactus", {
         method: 'POST',
@@ -22,7 +25,7 @@ const Contact = () => {
         body: JSON.stringify(formData),
       })
       if (res.ok) {
-        alert('Message Sent! We will get back to you shortly.');
+        toast.success('Message Sent! We will get back to you shortly.');
         setFormData({
           name: '',
           email: '',
@@ -30,10 +33,13 @@ const Contact = () => {
         });
       }
       else {
-        alert("An error occured while contact")
+        toast.error("An error occured while contact")
       }
     } catch (error) {
       console.log(error)
+    }
+    finally{
+      setLoading(false)
     }
   };
 
@@ -82,8 +88,8 @@ const Contact = () => {
             ></textarea>
           </div>
 
-          <button type="submit" className="submit-btn">
-            Send Message
+          <button disabled = {loading} type="submit" className="submit-btn">
+            {loading ? "Sending..." : "Send Message"}
           </button>
         </form>
       </div>

@@ -29,4 +29,13 @@
     font-size: 0.85rem;
     color: #95a5a6;
   }
+
+  @media (max-width:510px){
+    .footer{
+        padding: 40px 0;
+    }
+    .footer-container{
+      padding: 0 25px;
+    }
+  }
   

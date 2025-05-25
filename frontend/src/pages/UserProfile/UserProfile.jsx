@@ -9,6 +9,7 @@ const UserProfile = () => {
   const [username, setUsername] = useState(user.username);
   const [email, setEmail] = useState(user.email);
   const [image, setImage] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const [blogTitle, setBlogTitle] = useState("");
   const [blogContent, setBlogContent] = useState("");
@@ -22,6 +23,7 @@ const UserProfile = () => {
 
   const handleUpdateUser = async (e) => {
     e.preventDefault();
+    setLoading(true)
 
     if (!username || !email) {
       toast.warning("Please fill in all fields.");
@@ -50,10 +52,17 @@ const UserProfile = () => {
     } catch (error) {
       console.error(error);
     }
+    finally{
+      setLoading(false)
+    }
   };
 
   const handleCreateBlog = async (e) => {
     e.preventDefault();
+    if(!blogImage || !blogTitle || !blogCategory || !blogContent){
+      toast.warning("All fields are required!")
+    }
+    setLoading(true);
     const formData = new FormData();
     formData.append("image", blogImage);
     formData.append("blogTitle", blogTitle);
@@ -69,18 +78,18 @@ const UserProfile = () => {
 
       if (res.ok) {
         setBlogTitle("");
-        setBlogImage("");
         setBlogCategory("");
         setBlogContent("");
         setBlogImage(null);
         toast.success("Blog created successfully!");
         getUserBlogs();
         fetchAllBlogs();
-      } else {
-        toast.error("An error occurred while creating the blog");
-      }
+      } 
     } catch (error) {
       console.log(error);
+    }
+    finally{
+      setLoading(false)
     }
   };
 
@@ -143,7 +152,7 @@ const UserProfile = () => {
 
   const handleUpdateBlog  = async (e) =>{
     e.preventDefault();
-
+    setLoading(true)
     const formData = new FormData();
     formData.append("image", blogImage);
     formData.append("blogTitle", blogTitle);
@@ -158,7 +167,6 @@ const UserProfile = () => {
       })
       if(res.ok){
         setBlogTitle("");
-        setBlogImage("");
         setBlogCategory("");
         setBlogContent("");
         setBlogImage(null);
@@ -173,6 +181,9 @@ const UserProfile = () => {
       }
     } catch (error) {
       console.log(error)
+    }
+    finally{
+      setLoading(false)
     }
 
   }
@@ -192,7 +203,7 @@ const UserProfile = () => {
           <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} placeholder='username' />
           <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Email' />
           <input type="file" onChange={(e) => setImage(e.target.files[0])} />
-          <button onClick={handleUpdateUser}>Update</button>
+          <button disabled = {loading} onClick={handleUpdateUser}>Update</button>
         </form>
       </div>
       <div className="createBlogForm">
@@ -200,9 +211,9 @@ const UserProfile = () => {
           <h2>{isEdit ? "Update blog" : "Create blog"}</h2>
           <input type="file" onChange={(e) => setBlogImage(e.target.files[0])} />
           <input type="text" placeholder='Title' value={blogTitle} onChange={(e) => setBlogTitle(e.target.value)} />
-          <input type="text" placeholder='Category' value={blogCategory} onChange={(e) => setBlogCategory(e.target.value)} />
-          <textarea placeholder='Content' value={blogContent} onChange={(e) => setBlogContent(e.target.value)}></textarea>
-          <button className='createBlogbtn' onClick={isEdit ? handleUpdateBlog : handleCreateBlog}>{isEdit ? "Update blog" : "Create blog"}</button>
+          <input type="text" placeholder='Category' value={blogCategory} onChange={(e) => setBlogCategory(e.target.value)}  />
+          <textarea placeholder='Content' value={blogContent} onChange={(e) => setBlogContent(e.target.value)} ></textarea>
+          <button className='createBlogbtn' disabled = {loading} onClick={isEdit ? handleUpdateBlog : handleCreateBlog}>{isEdit ? "Update blog" : "Create blog" }</button>
         </form>
       </div>
       <div className="myblogs">
@@ -229,7 +240,7 @@ const UserProfile = () => {
                 })
               ) :
               (
-                <h4> No Post Yet</h4>
+                <p> No Post Yet</p>
               )
           }
 

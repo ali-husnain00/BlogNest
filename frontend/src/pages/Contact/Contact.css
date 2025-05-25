@@ -1,81 +1,113 @@
 .contact-container {
-    padding: 50px 100px;
-    background-color: white;
-    color: #333;
-    min-height: calc(100vh - 102px);
-    height: auto;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  padding: 50px 100px;
+  background-color: white;
+  color: #333;
+  min-height: calc(100vh - 102px);
+  height: auto;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-content {
+  max-width: 800px;
+  text-align: center;
+}
+
+.contact-content h1 {
+  color: #333;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.contact-content p {
+  color: #333;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: none;
+}
+
+.input-group input:focus {
+  outline: 1px solid#333;
+}
+
+.input-group textarea:focus {
+  outline: 1px solid#333;
+}
+
+.input-group textarea {
+  resize: none;
+  overflow-y: scroll;
+  width: 100%;
+  height: 150px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid gainsboro;
+}
+
+.submit-btn {
+  background-color: #333;
+  color: white;
+  font-size: 1.1rem;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+@media (max-width:680px) {
+  .contact-container {
+    padding: 50px 50px;
   }
-  
-  .contact-content {
-    max-width: 800px;
-    text-align: center;
-  }
-  
+
   .contact-content h1 {
-    color: #333;
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+    font-size: 34px;
+    margin-bottom: 10px;
   }
-  
+
   .contact-content p {
-    color: #333;
-    font-size: 1.2rem;
-    line-height: 1.6;
-    margin-bottom: 40px;
+    font-size: 17px;
   }
-  
-  .input-group {
-    margin-bottom: 20px;
-    text-align: left;
-  }
-  
-  .input-group label {
-    display: block;
-    font-size: 1.1rem;
-    margin-bottom: 8px;
-  }
-  
-  .input-group input {
-    width: 100%;
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    resize: none;
+}
+
+@media (max-width:510px) {
+  .contact-container {
+    padding: 20px 25px;
   }
 
-  .input-group input:focus{
-    outline: 1px solid#333;
+  .contact-content h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
   }
 
-  .input-group textarea:focus{
-    outline: 1px solid#333;
+  .contact-content p {
+    font-size: 16px;
   }
-  
-  .input-group textarea {
-    resize: none;
-    overflow-y: scroll;
-    width: 100%;
-    height: 150px;
-    padding: 10px;
-    border-radius:5px ;
-    border: 2px solid gainsboro;
-  }
-  
+
   .submit-btn {
-    background-color: #333;
-    color: white;
-    font-size: 1.1rem;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    font-size: 15px;
+    padding: 10px 10px;
   }
-  
-  
-  
+}

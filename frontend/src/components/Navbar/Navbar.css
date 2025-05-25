@@ -76,6 +76,7 @@ select {
 
 .navlinks.active{
     right: 0;
+    display: flex;
 }
 
 @media (max-width: 1480px) {
@@ -87,6 +88,9 @@ select {
 @media (max-width: 1075px) {
     .navbar {
         padding: 0 60px;
+    }
+    .show{
+        display: none;
     }
 }
 
@@ -101,6 +105,7 @@ select {
         padding: 20px;
         height: 100vh;
         right: -400px;
+        display: none;
     }
 
     .navlinks span{
@@ -108,7 +113,7 @@ select {
         display: flex;
         justify-content: end;
         align-items: center;
-        padding: 0 5px;
+        padding: 5px 10px;
     }
 
     .close-menu{
@@ -137,5 +142,9 @@ select {
 @media (max-width: 510px) {
     .navbar {
         padding: 0px 25px;
+    }
+    .navlinks{
+        width: 100%;
+        right: -600px;
     }
 }

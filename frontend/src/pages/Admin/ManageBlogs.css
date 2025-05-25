@@ -30,3 +30,8 @@
   cursor: pointer;
 }
 
+.table-resp-container{
+  width: 100%;
+  overflow-x: auto;
+}
+

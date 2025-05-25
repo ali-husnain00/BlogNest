@@ -1,4 +1,4 @@
-.profile{
+.profile {
     width: 100vw;
     min-height: calc(100vh - 100px);
     padding: 50px 100px;
@@ -8,18 +8,18 @@
     gap: 50px;
 }
 
-.userdata{
+.userdata {
     display: flex;
     gap: 150px;
 }
 
-.userInfo{
+.userInfo {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.userImage{
+.userImage {
     width: 140px;
     height: 140px;
     border-radius: 50%;
@@ -37,7 +37,7 @@
     object-position: top;
 }
 
-.editUser{
+.editUser {
     background-color: orange;
     color: white;
     padding: 8px 10px;
@@ -46,19 +46,19 @@
     cursor: pointer;
 }
 
-.userInfoForm{
+.userInfoForm {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-.userInfoForm input{
+.userInfoForm input {
     padding: 8px 10px;
     border: 2px solid gainsboro;
     border-radius: 5px;
 }
 
-.userInfoForm button{
+.userInfoForm button {
     background-color: #333;
     color: white;
     padding: 8px 10px;
@@ -67,20 +67,20 @@
     cursor: pointer;
 }
 
-.createBlogForm form{
+.createBlogForm form {
     display: flex;
     flex-direction: column;
     gap: 15px;
     width: 400px;
 }
 
-.createBlogForm form input{
+.createBlogForm form input {
     padding: 8px 10px;
     border: 2px solid gainsboro;
     border-radius: 5px;
 }
 
-.createBlogForm form textarea{
+.createBlogForm form textarea {
     padding: 8px 10px;
     border: 2px solid gainsboro;
     border-radius: 5px;
@@ -89,7 +89,7 @@
     resize: none;
 }
 
-.createBlogbtn{
+.createBlogbtn {
     background-color: #333;
     color: white;
     padding: 8px 10px;
@@ -98,13 +98,13 @@
     cursor: pointer;
 }
 
-.profile .myblogs{
+.profile .myblogs {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
-.myblogs_bloglist{
+.myblogs_bloglist {
     width: 100%;
     min-height: max-content;
     height: auto;
@@ -113,13 +113,13 @@
     gap: 40px;
 }
 
-.action-btns{
+.action-btns {
     width: 100%;
     display: flex;
     gap: 10px;
 }
 
-.edit-blog-btn{
+.edit-blog-btn {
     background-color: orange;
     color: white;
     padding: 8px 10px;
@@ -128,7 +128,7 @@
     cursor: pointer;
 }
 
-.delete-blog-btn{
+.delete-blog-btn {
     background-color: orangered;
     color: white;
     padding: 8px 10px;
@@ -137,12 +137,67 @@
     cursor: pointer;
 }
 
-.blog h4{
+.blog h4 {
     color: #333;
     font-weight: 500;
     line-height: 22px;
 }
 
-.blog .info{
+.blog .info {
     width: 100%;
+}
+
+@media (max-width:1075px) {
+    .profile {
+        padding: 50px 60px;
+    }
+}
+
+@media (max-width:790px) {
+    .userdata {
+        flex-direction: column;
+        gap: 60px;
+    }
+
+    .userInfo {
+        width: 100%;
+        align-items: center;
+    }
+
+    .userInfoForm {
+        width: 100%;
+    }
+
+    .userInfoForm button {
+        width: 50%;
+    }
+
+    .createBlogForm {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .createBlogForm form {
+        width: 100%;
+    }
+
+    .createBlogbtn {
+        width: 50%;
+    }
+}
+
+@media (max-width:510px) {
+    .profile {
+        padding: 50px 25px;
+    }
+
+    .myblogs h1 {
+        font-size: 28px;
+        display: flex;
+        justify-content: center;
+    }
+    .myblogs_bloglist{
+        justify-content: center;
+    }
 }

@@ -33,7 +33,8 @@ const ManageBlogs = () => {
   return (
     <div className="manage-blogs-container">
       <h2>All Blogs</h2>
-      <table className="blogs-table">
+      <div className="table-resp-container">
+        <table className="blogs-table">
         <thead>
           <tr>
             <th>Title</th>
@@ -55,6 +56,7 @@ const ManageBlogs = () => {
           ))}
         </tbody>
       </table>
+      </div>
     </div>
   );
 };

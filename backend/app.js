@@ -13,7 +13,7 @@ app.use(express.json());
 app.use("/uploads", express.static("uploads"))
 app.use(
   cors({
-    origin: "https://blogsnest.netlify.app/",
+    origin: "https://blogsnest.netlify.app",
     credentials: true,
   })
 );

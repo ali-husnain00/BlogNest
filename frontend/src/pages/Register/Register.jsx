@@ -1,18 +1,24 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import "./Register.css"
 import { Link } from 'react-router';
 import { ToastContainer, toast } from 'react-toastify';
+import { BlogContext } from '../../components/Context/Context';
+import Loading from '../../components/Loading/Loading';
 
 const Register = () => {
 
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false)
+
+  const {BASE_URL} = useContext(BlogContext)
 
   const handleRegister = async (e) => {
     e.preventDefault();
+    setLoading(true)
     try {
-      const res = await fetch("http://localhost:3000/register", {
+      const res = await fetch(`${BASE_URL}/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -34,6 +40,13 @@ const Register = () => {
     } catch (error) {
       console.error(error)
     }
+    finally{
+      setLoading(false)
+    }
+  }
+
+  if(loading){
+    return <Loading/>
   }
 
 

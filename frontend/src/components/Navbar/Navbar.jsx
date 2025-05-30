@@ -5,7 +5,7 @@ import { BlogContext } from '../Context/Context';
 import { ToastContainer, toast } from 'react-toastify';
 
 const Navbar = () => {
-  const { user, setUser } = useContext(BlogContext);
+  const { user, setUser, BASE_URL} = useContext(BlogContext);
   const navigate = useNavigate();
   const location = useLocation();  
   const [selectedOption, setSelectedOption] = useState("");  
@@ -34,7 +34,7 @@ const Navbar = () => {
 
   const handleLogout = async () => {
     try {
-      const res = await fetch("http://localhost:3000/logout", {
+      const res = await fetch(`${BASE_URL}/logout`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

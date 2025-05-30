@@ -5,7 +5,7 @@ import {toast } from 'react-toastify';
 
 const UserProfile = () => {
 
-  const { user, setUser, fetchAllBlogs } = useContext(BlogContext);
+  const { user, setUser, fetchAllBlogs, BASE_URL } = useContext(BlogContext);
   const [username, setUsername] = useState(user.username);
   const [email, setEmail] = useState(user.email);
   const [image, setImage] = useState(null);
@@ -36,7 +36,7 @@ const UserProfile = () => {
     if (image) formData.append("image", image);
 
     try {
-      const res = await fetch("http://localhost:3000/updateUser", {
+      const res = await fetch(`${BASE_URL}/updateUser`, {
         method: "PUT",
         credentials: "include",
         body: formData,
@@ -71,7 +71,7 @@ const UserProfile = () => {
     formData.append("email", user.email);
 
     try {
-      const res = await fetch("http://localhost:3000/createBlog", {
+      const res = await fetch(`${BASE_URL}/createBlog`, {
         method: "POST",
         body: formData,
       });
@@ -95,7 +95,7 @@ const UserProfile = () => {
 
   const getUserBlogs = async () => {
     try {
-      const res = await fetch("http://localhost:3000/getUserBlogs", {
+      const res = await fetch(`${BASE_URL}/getUserBlogs`, {
         method: "GET",
         headers: {
           "Content-Type": 'application/json'
@@ -121,7 +121,7 @@ const UserProfile = () => {
 
   const handleDeleteBlog = async (id) =>{
     try {
-      const res = await fetch(`http://localhost:3000/deleteBlog/${id}`,{
+      const res = await fetch(`${BASE_URL}/deleteBlog/${id}`,{
         method:"DELETE",
         headers:{
           "Content-Type":"application/json"
@@ -160,7 +160,7 @@ const UserProfile = () => {
     formData.append("blogCategory", blogCategory)
 
     try {
-      const res = await fetch(`http://localhost:3000/updateBlog/${editBlogId}`,{
+      const res = await fetch(`${BASE_URL}/updateBlog/${editBlogId}`,{
         method: "PUT",
         credentials:"include",
         body:formData
@@ -193,7 +193,7 @@ const UserProfile = () => {
       <div className="userdata">
         <div className="userInfo">
           <div className="userImage">
-            <img src={`http://localhost:3000/uploads/${user.profilePic}`} alt="" />
+            <img src={`${BASE_URL}/uploads/${user.profilePic}`} alt="" />
           </div>
           <p>Name: {user.username}</p>
           <p>Email: {user.email}</p>
@@ -226,7 +226,7 @@ const UserProfile = () => {
                   return (
                     <div className="blog" key={blog._id}>
                     <div className="image">
-                      <img src={`http://localhost:3000/uploads/${blog.coverImage}`} alt="Image" />
+                      <img src={`${BASE_URL}/uploads/${blog.coverImage}`} alt="Image" />
                     </div>
                     <div className="info">
                       <h4>{blog.title}</h4>

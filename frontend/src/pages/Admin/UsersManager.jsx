@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './UsersManager.css'; 
 import { toast } from 'react-toastify';
+import { BlogContext } from '../../components/Context/Context';
 
 const UsersManager = () => {
   const [users, setUsers] = useState([]);
+  const {BASE_URL} = useContext(BlogContext)
 
   const fetchUsers = async () => {
       try {
-        const res = await fetch('http://localhost:3000/admin/allUsers');
+        const res = await fetch(`${BASE_URL}/admin/allUsers`);
         const data = await res.json();
         setUsers(data);
       } catch (err) {
@@ -18,7 +20,7 @@ const UsersManager = () => {
 
   const handleDeleteUser = async (id) =>{
     try {
-        const res = await fetch(`http://localhost:3000/admin/deleteUser/${id}`,{
+        const res = await fetch(`${BASE_URL}/admin/deleteUser/${id}`,{
             method: "DELETE",
         })
         if(res.ok){

@@ -3,14 +3,15 @@ import "./ManageBlogs.css";
 import { BlogContext } from '../../components/Context/Context';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import Loading from '../../components/Loading/Loading';
 
 const ManageBlogs = () => {
-  const { allBlogs, fetchAllBlogs } = useContext(BlogContext);
+  const { allBlogs, fetchAllBlogs, BASE_URL } = useContext(BlogContext);
   const navigate = useNavigate();
 
   const handleDeleteBlog = async (id) =>{
     try {
-      const res = await fetch(`http://localhost:3000/deleteBlog/${id}`,{
+      const res = await fetch(`${BASE_URL}/deleteBlog/${id}`,{
         method:"DELETE",
         headers:{
           "Content-Type":"application/json"
@@ -28,7 +29,6 @@ const ManageBlogs = () => {
       console.log(error)
     }
   }
-
 
   return (
     <div className="manage-blogs-container">

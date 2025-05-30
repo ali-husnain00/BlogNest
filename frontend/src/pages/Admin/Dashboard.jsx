@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import "./Dashboard.css"
+import Loading from '../../components/Loading/Loading';
+import { BlogContext } from '../../components/Context/Context';
 
 const Dashboard = () => {
   const [stats, setStats] = useState({ totalUsers: 0, totalBlogs: 0 });
 
+  const {BASE_URL} = useContext(BlogContext)
+
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const res = await fetch('http://localhost:3000/admin/stats');
+        const res = await fetch(`${BASE_URL}/admin/stats`);
         const data = await res.json(); 
         setStats(data);
         console.log(data)

@@ -3,19 +3,22 @@ import "./Login.css"
 import { Link, useNavigate } from "react-router-dom"
 import { BlogContext } from "../../components/Context/Context";
 import { ToastContainer, toast } from 'react-toastify';
+import Loading from "../../components/Loading/Loading";
 
 const Login = () => {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false)
 
-  const { setUser } = useContext(BlogContext)
+  const { setUser, BASE_URL } = useContext(BlogContext)
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    setLoading(true)
     try {
-      const res = await fetch("http://localhost:3000/login", {
+      const res = await fetch(`${BASE_URL}/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -40,6 +43,13 @@ const Login = () => {
       toast.error("An error occured while login");
       console.error(error);
     }
+    finally{
+      setLoading(false)
+    }
+  }
+
+  if(loading){
+    return <Loading/>
   }
 
   return (

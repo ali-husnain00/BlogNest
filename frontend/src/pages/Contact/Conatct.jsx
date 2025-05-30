@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import './Contact.css';
 import { toast } from 'react-toastify';
+import { BlogContext } from '../../components/Context/Context';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -9,6 +10,7 @@ const Contact = () => {
     message: '',
   });
   const [loading, setLoading] = useState(false)
+  const {BASE_URL} = useContext(BlogContext)
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -19,7 +21,7 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true)
     try {
-      const res = await fetch("http://localhost:3000/contactus", {
+      const res = await fetch(`${BASE_URL}/contactus`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),

@@ -5,7 +5,7 @@ import { BlogContext } from '../../components/Context/Context';
 
 const Blog = () => {
   const { id } = useParams();
-  const { allBlogs } = useContext(BlogContext);
+  const { allBlogs, BASE_URL } = useContext(BlogContext);
   const [blog, setBlog] = useState(null);
 
   useEffect(() => {
@@ -27,7 +27,7 @@ const Blog = () => {
 
         <div className="blog-image-placeholder">
           <img
-            src={`http://localhost:3000/uploads/${blog.coverImage}`}
+            src={`${BASE_URL}/uploads/${blog.coverImage}`}
             alt={blog.category}
             className="blog-image"
           />

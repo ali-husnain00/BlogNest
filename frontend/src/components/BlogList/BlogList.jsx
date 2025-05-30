@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router';
 
 const BlogList = () => {
 
-    const { allBlogs } = useContext(BlogContext);
+    const { allBlogs, BASE_URL } = useContext(BlogContext);
     const [searchedVal, setSearchedVal] = useState("");
     const [searchedCategory, setSearchedCategory] = useState("all");
     
@@ -41,7 +41,7 @@ const BlogList = () => {
                                 <p className='category'>{blog.category}</p>
                                 </div>
                                 <div className="image">
-                                    <img src={`http://localhost:3000/uploads/${blog.coverImage}`} alt="blog" />
+                                    <img src={`${BASE_URL}/uploads/${blog.coverImage}`} alt="blog" />
                                 </div>
                                 <div className="info">
                                     <h4>{blog.title}</h4>

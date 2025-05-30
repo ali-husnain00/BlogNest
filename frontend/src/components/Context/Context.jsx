@@ -9,11 +9,13 @@ const BlogContextProvider = ({ children }) => {
 
     const [allBlogs, setAllBlogs] = useState([]);
 
+    const BASE_URL = import.meta.env.VITE_API_URL;
+
 
     useEffect(() => {
         const fetchUser = async () => {
             try {
-                const res = await fetch("http://localhost:3000/profile", {
+                const res = await fetch(`${BASE_URL}/profile`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
@@ -40,7 +42,7 @@ const BlogContextProvider = ({ children }) => {
 
     const fetchAllBlogs = async () => {
         try {
-            const res = await fetch("http://localhost:3000/getAllBlogs");
+            const res = await fetch(`${BASE_URL}/getAllBlogs`);
             if (res.ok) {
                 const data = await res.json();
                 setAllBlogs(data);
@@ -63,6 +65,7 @@ const BlogContextProvider = ({ children }) => {
         setLoading,
         allBlogs,
         fetchAllBlogs,
+        BASE_URL,
     };
 
     return (

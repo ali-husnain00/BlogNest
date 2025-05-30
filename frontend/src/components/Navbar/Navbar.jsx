@@ -58,6 +58,7 @@ const Navbar = () => {
   const handleChange = (e) => {
     const value = e.target.value;
     setSelectedOption(value); 
+    setMenuActive(false)
 
     if (value === "profile") {
       handleProfile();
@@ -81,8 +82,8 @@ const Navbar = () => {
           user ? (  
             <select value={selectedOption} onChange={handleChange}>
               <option value="greeting" disabled>Hi👋 {user.username}</option>
-              <option onClick={() =>setMenuActive(menuActive === true ? false : false)} value="profile">My Profile</option>
-              <option onClick={() =>setMenuActive(menuActive === true ? false : false)} value="logout">Logout</option>
+              <option value="profile">My Profile</option>
+              <option value="logout">Logout</option>
             </select>
           ) : (  
             <Link to="/login"><i className='login-btn' onClick={() =>setMenuActive(menuActive === true ? false : false)}>Login</i></Link>

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import "./UserProfile.css"
 import { BlogContext } from '../../components/Context/Context'
-import { ToastContainer, toast } from 'react-toastify';
+import {toast } from 'react-toastify';
 
 const UserProfile = () => {
 
@@ -212,7 +212,7 @@ const UserProfile = () => {
           <input type="file" onChange={(e) => setBlogImage(e.target.files[0])} />
           <input type="text" placeholder='Title' value={blogTitle} onChange={(e) => setBlogTitle(e.target.value)} />
           <input type="text" placeholder='Category' value={blogCategory} onChange={(e) => setBlogCategory(e.target.value)}  />
-          <textarea placeholder='Content' value={blogContent} onChange={(e) => setBlogContent(e.target.value)} ></textarea>
+          <textarea placeholder='Content' value={blogContent} onChange={(e) =>setBlogContent(e.target.value)}></textarea>
           <button className='createBlogbtn' disabled = {loading} onClick={isEdit ? handleUpdateBlog : handleCreateBlog}>{isEdit ? "Update blog" : "Create blog" }</button>
         </form>
       </div>

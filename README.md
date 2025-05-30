@@ -22,15 +22,15 @@ MongoDB, Express.js, React.js, Node.js, JWT, Multer, Cookie-parser, Bcrypt, Reac
 ## 📦 Installation & Setup
 
 Ready to run BlogNest locally? Follow these steps:
-git clone https://github.com/ali-husnain00/VendorBay
-npm install
+- git clone https://github.com/ali-husnain00/VendorBay
+- npm install
 
 Create a .env file in the root and add:
-PORT=your_port_number
-JWT_SECRET=your_jwt_secret
-EMAIL_USER=your_email_address
-EMAIL_PASS=your_email_password
-MONGODB_URI=your_mongodb_connection_string
+- PORT=your_port_number
+- JWT_SECRET=your_jwt_secret
+- EMAIL_USER=your_email_address
+- EMAIL_PASS=your_email_password
+- MONGODB_URI=your_mongodb_connection_string
 
 ### Start the app:
 npm start
@@ -39,11 +39,11 @@ npm start
 Check it out live here 👉 https://blogsnest.netlify.app/
 
 ## 📝 How to Use
-1.Sign up and log in 🔐
-2.Update your profile anytime 👤
-3.Create and manage your blogs ✍️
-4.Search for blogs using keywords 🔎
-5.Admin has special powers to manage everything 🛠️
+- Sign up and log in 🔐
+- Update your profile anytime 👤
+- Create and manage your blogs ✍️
+- Search for blogs using keywords 🔎
+- Admin has special powers to manage everything 🛠️
 
 ## ⚠️ Notes
 Only one admin controls user & blog management.
@@ -52,4 +52,4 @@ This project is a personal learning journey and portfolio piece.
 
 ## 📬 Contact Me
 Got questions? Want to chat about code? Reach out anytime! 💬
-LinkedIn: https://www.linkedin.com/in/ali-husnain00/
+- LinkedIn: https://www.linkedin.com/in/ali-husnain00/

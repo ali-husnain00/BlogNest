@@ -22,7 +22,7 @@ MongoDB, Express.js, React.js, Node.js, JWT, Multer, Cookie-parser, Bcrypt, Reac
 ## 📦 Installation & Setup
 
 Ready to run BlogNest locally? Follow these steps:
-- git clone https://github.com/ali-husnain00/VendorBay
+- git clone https://github.com/ali-husnain00/BlogNest
 - npm install
 
 Create a .env file in the root and add:
